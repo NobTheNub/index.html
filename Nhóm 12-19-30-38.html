@@ -1,0 +1,902 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modtra - Quán Matcha Thư Giãn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #a8d5ba;
+            --dark-green: #5a9d7d;
+            --light-cream: #faf7f2;
+            --soft-beige: #f0ebe3;
+            --white: #ffffff;
+            --text-dark: #2c3e2f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-cream);
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background-color: var(--white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-green);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, rgba(168, 213, 186, 0.8) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .matcha-badge {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--dark-green);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            margin: 2rem auto 0;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/d/d9/Matcha_Scoop.jpg') center/contain no-repeat;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(90, 157, 125, 0.3);
+        }
+
+        .cta-button-secondary {
+            background-color: var(--white);
+            color: var(--dark-green);
+            border: 2px solid var(--dark-green);
+        }
+
+        .cta-button-secondary:hover {
+            background-color: var(--soft-beige);
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            padding: 4rem 2rem;
+            background-color: var(--white);
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .about-highlight {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            background-color: var(--light-cream);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h3 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-box p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        /* ========== MENU SECTION ========== */
+        .menu {
+            padding: 4rem 2rem;
+            background-color: var(--soft-beige);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .menu-item {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(90, 157, 125, 0.2);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-drink-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item h3 {
+            color: var(--dark-green);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item-description {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .menu-item-price {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .badge-matcha {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .category-filter {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--primary-green);
+            background-color: var(--white);
+            color: var(--dark-green);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .category-filter.active {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 3rem 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+            padding-top: 1.5rem;
+        }
+
+        .footer-bottom {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ========== ORDER SECTION ========== */
+        .order {
+            padding: 4rem 2rem;
+            background-color: var(--white);
+        }
+
+        .order-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .order-form {
+            background-color: var(--light-cream);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-green);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--soft-beige);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-btn {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">☕ Modtra</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#order">Đặt Hàng</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="matcha-badge">🌿 Đặc biệt từ Matcha Nhật Bản</div>
+            <h1>Modtra - Nơi Thư Giãn Hoàn Hảo</h1>
+            <p>Hãy để những ly matcha hương thơm đưa bạn vào một thế giới yên bình</p>
+            <div class="hero-image"></div>
+            <div>
+                <button class="cta-button" data-target="menu">Xem Menu</button>
+                <button class="cta-button cta-button-secondary" data-target="order">Đặt Nước Ngay</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="about-container">
+            <h2 class="section-title">Về Modtra</h2>
+            <p class="about-content">
+                Modtra là một quán đồ uống hiện đại, nơi chúng tôi tập trung vào việc mang đến những tách matcha <span class="about-highlight">chất lượng cao nhất</span> từ những vùng trồng tốt nhất của Nhật Bản. 
+            </p>
+            <p class="about-content">
+                Chúng tôi tin rằng mỗi ly trà không chỉ là một thức uống, mà là một <span class="about-highlight">trải nghiệm thư giãn</span> đầy ý nghĩa. Với không gian thiết kế tối giản, thân thiện và thoáng mát, Modtra là nơi lý tưởng để bạn tìm kiếm bình yên.
+            </p>
+
+            <div class="features">
+                <div class="feature-box">
+                    <img src="https://product.hstatic.net/200000354189/product/matcha_premium-11_1ab631d01d4740dca09cb71634d37bb9.png" alt="Matcha" class="feature-img">
+                    <h3>Matcha Cao Cấp</h3>
+                    <p>Tất cả matcha của chúng tôi được nhập khẩu trực tiếp từ Nhật Bản, đảm bảo chất lượng tốt nhất</p>
+                </div>
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Coffee" class="feature-img">
+                    <h3>Cà Phê Đặc Biệt</h3>
+                    <p>Cà phê rang thủ công từ những hạt cà phê chọn lọc, mang hương vị đặc trưng riêng</p>
+                </div>
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Relaxing Cafe" class="feature-img">
+                    <h3>Trải Nghiệm Thư Giãn</h3>
+                    <p>Không gian yên tĩnh, nhân viên thân thiện, mọi thứ được thiết kế cho sự thoải mái của bạn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu" id="menu">
+        <div class="menu-container">
+            <h2 class="menu-title">Thực Đơn Của Chúng Tôi</h2>
+            
+            <div class="menu-categories">
+                <button class="category-filter active" data-category="all">Tất Cả</button>
+                <button class="category-filter" data-category="matcha">Matcha ⭐</button>
+                <button class="category-filter" data-category="coffee">Cà Phê</button>
+                <button class="category-filter" data-category="other">Khác</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- MATCHA ITEMS -->
+                <div class="menu-item" data-category="matcha">
+                    <div class="menu-item-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75rVzAaXUK6Xmx8G0fAkAF6UAUweKBoAPcQ&s" alt="Matcha Latte" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <div class="badge-matcha">MATCHA</div>
+                        <h3>Matcha Latte Cổ Điển</h3>
+                        <p class="menu-item-description">Matcha chuẩn từ Nhật kết hợp với sữa mịn, mang hương vị thanh mát và dễ chịu</p>
+                        <div class="menu-item-price">45.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="matcha">
+                    <div class="menu-item-image"><img src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_10_19_638332775001119328_matcha-da-xay-1.jpg" alt="Iced Matcha" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <div class="badge-matcha">MATCHA</div>
+                        <h3>Matcha Đá Xay</h3>
+                        <p class="menu-item-description">Matcha tươi mát với đá, hệ số trưng bày hoàn hảo cho những ngày nắng nóng</p>
+                        <div class="menu-item-price">50.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="matcha">
+                    <div class="menu-item-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBMdKeA3TOoJDdxQfCQzy_BySbdGdYupJCw&s" alt="Matcha Ice Cream" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <div class="badge-matcha">MATCHA</div>
+                        <h3>Matcha Sữa Gấu</h3>
+                        <p class="menu-item-description">Matcha kết hợp với sữa gấu beo ngậy, tạo nên một ly trà đặc biệt và hấp dẫn</p>
+                        <div class="menu-item-price">55.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="matcha">
+                    <div class="menu-item-image"><img src="https://bizweb.dktcdn.net/100/025/663/files/tra-xanh-matcha-nhat-ban-2_e582b4d3-030b-4abc-ae78-74585f342905.jpg?v=1769256139941" alt="Traditional Matcha" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <div class="badge-matcha">MATCHA</div>
+                        <h3>Matcha Trà Sánh</h3>
+                        <p class="menu-item-description">Matcha được pha theo truyền thống Nhật, hương vị đậm đà và nguyên chất nhất</p>
+                        <div class="menu-item-price">60.000đ</div>
+                    </div>
+                </div>
+
+                <!-- COFFEE ITEMS -->
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-image"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Cappuccino" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Cappuccino Ý</h3>
+                        <p class="menu-item-description">Cà phê espresso kết hợp với bọt sữa mềm, mang hương vị cổ điển và thanh lịch</p>
+                        <div class="menu-item-price">40.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-image"><img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Espresso" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Espresso Đen Đậm</h3>
+                        <p class="menu-item-description">Cà phê espresso tinh chất, dành cho những ai yêu thích vị cà phê nguyên bản</p>
+                        <div class="menu-item-price">35.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-image"><img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vietnamese Coffee with Milk" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Cà Phê Đen Sữa</h3>
+                        <p class="menu-item-description">Cà phê Việt truyền thống kết hợp với sữa đặc, mang vị câu chuyện quen thuộc</p>
+                        <div class="menu-item-price">30.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-image"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Iced Coffee" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Cà Phê Đá Lạnh</h3>
+                        <p class="menu-item-description">Cà phê đen hoặc có sữa, phục vụ lạnh giải khát cho những buổi chiều nắng</p>
+                        <div class="menu-item-price">35.000đ</div>
+                    </div>
+                </div>
+
+                <!-- OTHER ITEMS -->
+                <div class="menu-item" data-category="other">
+                    <div class="menu-item-image"><img src="https://cms.piklab.vn/resources/Tai%20nguyen%20Piklab/Bo%20suu%20tap/PNG%20Tong%20Hop/png%201131c.jpg" alt="Lemon Tea" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Lemon Tea Tươi</h3>
+                        <p class="menu-item-description">Trà chanh tươi mát, kết hợp với mật ong, mang vị chua ngọt hấp dẫn</p>
+                        <div class="menu-item-price">38.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="other">
+                    <div class="menu-item-image"><img src="https://cookbeo.com/media/2021/06/sinh-to-bo/sinh-to-bo.jpg" alt="Avocado Smoothie" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Sinh Tố Bơ</h3>
+                        <p class="menu-item-description">Sinh tố bơ mịn với sữa tươi, giàu dinh dưỡng và rất ngon miệng</p>
+                        <div class="menu-item-price">45.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="other">
+                    <div class="menu-item-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQngdOzxTQpt7viq9B2Lg9o7W4NLEuvnqKZgA&s" alt="Strawberry Smoothie" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Sinh Tố Dâu</h3>
+                        <p class="menu-item-description">Sinh tố dâu tây tươi ngon, mang vị ngọt tự nhiên và sư tế để về lành mạnh</p>
+                        <div class="menu-item-price">42.000đ</div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="other">
+                    <div class="menu-item-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyY9XOCnCbIeOltp796eYnae9uQqkJpEcbhA&s" alt="Iced Green Tea" class="menu-drink-img"></div>
+                    <div class="menu-item-content">
+                        <h3>Trà Xanh Đá Tuyết</h3>
+                        <p class="menu-item-description">Trà xanh thanh mát, đá lạnh, giúp bạn sảng khoái và tỉnh táo</p>
+                        <div class="menu-item-price">32.000đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Bạn Đã Chọn Được Thứ Yêu Thích Chưa?</h2>
+                <p>Đặt hàng ngay qua điện thoại, tin nhắn hoặc ghé thăm quán để trải nghiệm tuyệt vời</p>
+                <button class="cta-button" data-target="order">Đặt Nước Ngay</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER SECTION -->
+    <section class="order" id="order">
+        <div class="order-container">
+            <h2 class="section-title">Đặt Nước Ngay</h2>
+            <p class="about-content">Hãy điền thông tin của bạn để chúng tôi phục vụ bạn tốt nhất!</p>
+
+            <form class="order-form">
+                <div class="form-group">
+                    <label for="name">Họ và Tên *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa Chỉ Giao Hàng *</label>
+                    <textarea id="address" name="address" placeholder="Vui lòng nhập địa chỉ chi tiết..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Ghi Chú (Tùy Chọn)</label>
+                    <textarea id="notes" name="notes" placeholder="Ví dụ: Loại nước, số lượng, thời gian giao..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Gửi Đơn Hàng</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>☕ Modtra</h4>
+                    <p>Quán đồ uống modatra của bạn, nơi hòa quyện cà phê, matcha và sự thư giãn</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên Hệ</h4>
+                    <p>Địa chỉ: 123 Đường Lê Lợi, Quận 1, TP.HCM</p>
+                    <p>Điện thoại: (028) 1234 5678</p>
+                    <p>Email: hello@modtra.vn</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Giờ Mở Cửa</h4>
+                    <p>Thứ Hai - Thứ Sáu: 08:00 - 22:00</p>
+                    <p>Thứ Bảy - Chủ Nhật: 09:00 - 23:00</p>
+                    <p>Đóng cửa: Các ngày lễ</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Theo Dõi Chúng Tôi</h4>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Instagram</a><br>
+                    <a href="#">TikTok</a><br>
+                    <a href="#">Zalo</a>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Modtra - Quán Đồ Uống Modatra Của Bạn. Tất cả quyền được bảo lưu.</p>
+                <p>Thiết kế bởi & với tình yêu ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu filter functionality
+        const filterButtons = document.querySelectorAll('.category-filter');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter menu items
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.menu-item, .feature-box').forEach(el => {
+            observer.observe(el);
+        });
+
+        // CTA buttons scroll behavior
+        document.querySelectorAll('.cta-button[data-target]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('Không tìm thấy mục ' + targetId + '.');
+                }
+            });
+        });
+
+        // Order form submission
+        document.querySelector('.order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const notes = document.getElementById('notes').value;
+
+            if (name && phone && address) {
+                // Store order details in localStorage for potential use on thank you page
+                const orderData = { name, phone, address, notes: notes || 'Không có' };
+                localStorage.setItem('modtraOrder', JSON.stringify(orderData));
+
+                // Redirect to thank you page
+                window.location.href = 'thankyou.html';
+            } else {
+                alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
+            }
+        });
+    </script>
+</body>
+</html>
