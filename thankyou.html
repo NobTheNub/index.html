@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm Ơn - Modtra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #a8d5ba;
+            --dark-green: #5a9d7d;
+            --light-cream: #faf7f2;
+            --soft-beige: #f0ebe3;
+            --white: #ffffff;
+            --text-dark: #2c3e2f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-cream);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+            margin: 2rem;
+            text-align: center;
+            background-color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .thank-you-message {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .thank-you-highlight {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .back-btn:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(90, 157, 125, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thank-you-container {
+            animation: fadeInUp 0.8s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-icon">🙏</div>
+        <h1 class="thank-you-title">Cảm Ơn Bạn Đã Ủng Hộ Modtra!</h1>
+        <p class="thank-you-message">
+            Đơn hàng của bạn đã được ghi nhận và đang trên đường đến với bạn.
+            <br>
+            <span class="thank-you-highlight">Chúc bạn có một ngày tuyệt vời!</span>
+        </p>
+        <p class="thank-you-message">
+            Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để xác nhận đơn hàng.
+            <br>
+            Hẹn gặp lại bạn tại Modtra! ☕
+        </p>
+        <a href="Nhóm 12-19-30-38.html" class="back-btn">Quay Lại Trang Chủ</a>
+    </div>
+</body>
+</html>
